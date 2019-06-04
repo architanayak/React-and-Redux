@@ -1,0 +1,15 @@
+body{
+    margin : 100px 300px;
+    padding: 20px;
+  }
+  th{
+    text-align: left
+  }
+  .link{
+    color : white;
+  }
+  .link:hover{
+    color : white;
+    text-decoration: none
+
+  }
