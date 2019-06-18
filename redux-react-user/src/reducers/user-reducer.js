@@ -1,7 +1,7 @@
 
 // static data considered as student-reducer : which would contain functions regarding students.
 //state consist whole state.
-const arr = [
+const userArr = [
   {
     id: 1,
     first: "Archita",
@@ -120,7 +120,7 @@ const arr = [
 ];
 
 const initialState = {
-  users: arr
+  users: userArr
 }
 
 export default function (state = initialState, action) {

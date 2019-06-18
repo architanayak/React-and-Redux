@@ -15,11 +15,18 @@ class UserDetails extends Component {
   }
   componentDidMount() {
     let id = this.props.match.params.id;
-    const user = this.props.users.find(x => x.id === parseInt(id));
+    const user = this.props.users.find(x => {
+      console.log(x.id)
+      return x.id === parseInt(id)
+    });
     this.setState({ user });
   }
   toggleModal() {
     this.setState({ modal: !this.state.modal });
+  }
+  onSubmitDetails(){
+    this.props.dispatch(editUser({ ...this.state.user }))
+    this.props.history.push('/')
   }
   editUserDetails(e) {
     let obj = {};
@@ -71,8 +78,8 @@ class UserDetails extends Component {
             modal={this.state.modal}
             toggleModal={() => this.toggleModal()}
           />
-          <Button block color='success' onClick={() => this.props.dispatch(editUser({ ...this.state.user }))}>Submit</Button>
-          <Button block color='info'><Link className='link' to='/'>Cancel</Link></Button>
+          <Button block color='success' onClick={() => this.onSubmitDetails()}>Submit</Button>
+          <Button block color='info' onClick={() => this.props.history.push('/')}>Cancel</Button>
         </Form>
       </div>
     )
